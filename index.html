@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="EagleTeam - 馬來西亞雨林中的行動者，推動文化與環境教育的團隊。">
-    <meta name="keywords" content="EagleTeam, 馬來西亞, 雨林, 環境保育, 文化, 手工藝, 教育, 中一翔鷹, 中一, 翔鷹, 照亮, ">
+    <meta name="keywords" content="EagleTeam, 馬來西亞, 雨林, 環境保育, 文化, 手工藝, 教育, 中一翔鷹, 中一, 翔鷹, 照亮">
     <meta name="author" content="EagleTeam">
-
     <title>中一翔鷹 照亮雨林</title>
+    
+    <!-- Animation CSS -->
+    <link rel="stylesheet" href="css/animations.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -40,6 +42,11 @@
             width: 300px;
             height: auto;
             border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
         .button {
             background-color: #2E4A26;
@@ -50,52 +57,80 @@
             font-weight: bold;
             border-radius: 30px;
             display: inline-block;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
-        .button:hover {
-            background-color: #446e3a;
+        .button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #3d6b35;
+            z-index: -1;
+            transition: transform 0.3s ease;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            border-radius: 30px;
+        }
+        .button:hover::after {
+            transform: scaleY(1);
         }
         footer {
             margin-top: 60px;
             color: #999;
         }
     </style>
+    <!-- Preload important resources -->
+    <link rel="preload" href="js/main.js" as="script">
 </head>
 <body>
     <div class="container">
-        <h1>中一翔鷹 照亮雨林</h1>
-        <p><strong>在喧囂與雨幕中，我們以信念穿林破霧，築起希望的翅膀</strong></p>
+        <h1 class="reveal fade-in">中一翔鷹 照亮雨林</h1>
+        <p class="reveal fade-in delay-1"><strong>在喧囂與雨幕中，我們以信念穿林破霧，築起希望的翅膀</strong></p>
 
-        <div class="gallery">
-            <img src="images/4819d9f1.jpg" alt="Gallery Image 1">
-            <img src="images/40ce1140.jpg" alt="Gallery Image 2">
-            <img src="images/asset_784056_image_big.jpg" alt="Gallery Image 3">
+        <div class="gallery reveal">
+            <img src="images/4819d9f1.jpg" alt="Gallery Image 1" class="reveal fade-in delay-1">
+            <img src="images/40ce1140.jpg" alt="Gallery Image 2" class="reveal fade-in delay-2">
+            <img src="images/asset_784056_image_big.jpg" alt="Gallery Image 3" class="reveal fade-in delay-3">
         </div>
 
-        <h2>關於我們</h2>
-        <p>我們是中一翔鷹團隊，致力於雨林保育與環境教育，為馬來西亞的本南居民守護一片土壤，照亮一片光明。從一場課程、一段紀錄，到一份行動。我們相信，每一次展翅，都是對自然的回應；每一份努力，都是給未來的光。</p>
-        <a href="https://eagleteamint.carrd.co/" class="button">了解使命</a>
-
-        <div class="gallery">
-            <img src="images/b60cf35a.jpg" alt="Gallery Image 4">
-            <img src="images/DAF05854-AB89-466F-8B6E-42CC48B5D8D9.jpg" alt="Gallery Image 5">
+        <div class="reveal slide-left">
+            <h2>關於我們</h2>
+            <p>我們是中一翔鷹團隊，致力於雨林保育與環境教育，為馬來西亞的本南居民守護一片土壤，照亮一片光明。從一場課程、一段紀錄，到一份行動。我們相信，每一次展翅，都是對自然的回應；每一份努力，都是給未來的光。</p>
+            <a href="https://eagleteamint.carrd.co/" class="button scale-in delay-1">了解使命</a>
         </div>
 
-        <h2>手工藝品</h2>
-        <p>每一件由當地居民親手製作的作品，都是對他們文化、傳統和生活方式的珍視與延續。您的支持不僅能幫助他們更好地生活，也讓更多人了解這些美麗的故事與工藝。</p>
-        <a href="#" class="button">愛心傳遞</a>
-
-        <div class="gallery">
-            <img src="images/9c109b15.jpg" alt="Gallery Image 6">
+        <div class="gallery reveal">
+            <img src="images/b60cf35a.jpg" alt="Gallery Image 4" class="reveal fade-in delay-1">
+            <img src="images/DAF05854-AB89-466F-8B6E-42CC48B5D8D9.jpg" alt="Gallery Image 5" class="reveal fade-in delay-2">
         </div>
 
-        <h2>與我們聯繫</h2>
-        <p>無論是提問、建議還是合作，隨時聯繫我們，我們願意聽取並為您提供支持。</p>
-        <a href="#" class="button">與我們分享您的想法</a>
+        <div class="reveal slide-right">
+            <h2>手工藝品</h2>
+            <p>每一件由當地居民親手製作的作品，都是對他們文化、傳統和生活方式的珍視與延續。您的支持不僅能幫助他們更好地生活，也讓更多人了解這些美麗的故事與工藝。</p>
+            <a href="#" class="button scale-in delay-1">愛心傳遞</a>
+        </div>
 
-        <footer>
+        <div class="gallery reveal">
+            <img src="images/9c109b15.jpg" alt="Gallery Image 6" class="reveal fade-in">
+        </div>
+
+        <div class="reveal fade-in">
+            <h2>與我們聯繫</h2>
+            <p>無論是提問、建議還是合作，隨時聯繫我們，我們願意聽取並為您提供支持。</p>
+            <a href="#" class="button scale-in delay-1">與我們分享您的想法</a>
+        </div>
+
+        <footer class="reveal fade-in">
             <p>© 2025 EagleTeam. All rights reserved.</p>
         </footer>
     </div>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html>
