@@ -1,249 +1,132 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>關於我們 - 中一翔鷹</title>
-  <link rel="stylesheet" href="css/animations.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-      color: #f0f0f0;
-      text-align: center;
       margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      line-height: 1.6;
+      background-color: #0a0a0a;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+    header {
+      background-color: #2e4a26;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+      font-weight: bold;
     }
     .container {
-      padding: 70px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-    
-    /* Add subtle pattern overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 20px 20px;
-      z-index: 0;
-      pointer-events: none;
-    }
-    h1 {
-      font-size: 3.2em;
-      margin-bottom: 25px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      background: linear-gradient(45deg, #ffffff, #e0e0e0);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
     }
     h2 {
-      color: #4a8f3c;
-      margin-bottom: 20px;
+      color: #a8e063;
+      font-size: 1.5em;
+      margin-top: 40px;
     }
     p {
-      font-size: 1.2em;
-      max-width: 800px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
+      line-height: 1.8;
+      margin: 10px 0 20px;
     }
-    .team-grid {
+    .team {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 30px;
-      margin: 40px 0;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
     }
-    .team-member {
-      background: rgba(30, 30, 30, 0.7);
-      padding: 25px 20px;
-      border-radius: 12px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      backdrop-filter: blur(5px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    .member {
+      text-align: center;
     }
-    .team-member:hover {
-      transform: translateY(-5px) scale(1.02);
-      background: rgba(40, 40, 40, 0.8);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
-    .team-member img {
-      width: 150px;
-      height: 150px;
+    .member img {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 15px;
       border: 3px solid #4a8f3c;
+      object-fit: cover;
     }
     .button {
-      background: linear-gradient(45deg, #4a8f3c, #5aae4a);
-      color: #ffffff;
-      padding: 14px 35px;
-      margin: 25px 10px;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 50px;
       display: inline-block;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      border: none;
-      box-shadow: 0 4px 15px rgba(74, 143, 60, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(74, 143, 60, 0.4);
-      background: linear-gradient(45deg, #5aae4a, #4a8f3c);
-    }
-    
-    .button:active {
-      transform: translateY(1px);
-      box-shadow: 0 2px 10px rgba(74, 143, 60, 0.3);
-    }
-    .stats-container {
-      display: flex;
-      justify-content: space-around;
-      margin: 40px 0;
-      flex-wrap: wrap;
-    }
-    .stat-item {
-      margin: 15px;
-    }
-    .stat-number {
-      font-size: 2.8em;
+      margin-top: 40px;
+      padding: 12px 30px;
+      background-color: #4a8f3c;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
       font-weight: bold;
-      background: linear-gradient(45deg, #4a8f3c, #5aae4a);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 5px;
-      text-shadow: 0 2px 10px rgba(74, 143, 60, 0.3);
     }
     footer {
-      margin-top: 80px;
-      color: #aaa;
-      padding: 30px 0;
-      background: rgba(15, 15, 15, 0.8);
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      font-size: 0.95em;
-    }
-    @media (max-width: 768px) {
-      .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 480px) {
-      .team-grid {
-        grid-template-columns: 1fr;
-      }
+      text-align: center;
+      color: #ccc;
+      padding: 30px 10px;
+      font-size: 0.9em;
+      border-top: 1px solid #333;
+      margin-top: 60px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="reveal fade-in">關於 中一翔鷹</h1>
-    <p class="reveal fade-in delay-1"><strong>連結人與自然，守護雨林生態</strong></p>
 
-    <div class="reveal fade-in">
-      <h2>我們的使命</h2>
-      <p>我們是中一翔鷹團隊，一群熱血的青年，致力於在雨林與人之間搭建理解與希望的橋梁。從環境教育、文化傳承，到手工藝推廣，我們相信每一份行動都是點亮世界的一道光。</p>
-      <p>我們不只是記錄雨林的聲音，我們也是參與者。從課堂到部落，從線上到線下，中一翔鷹的每一步都是對這片土地的承諾。</p>
+<header>
+  <h1>關於我們 - 中一翔鷹</h1>
+</header>
+
+<div class="container">
+  <h2>我們的故事</h2>
+  <p>中一翔鷹是一群關注雨林與原住民文化的青年，我們用行動參與保育與教育，致力於創造理解、參與與改變。</p>
+
+  <h2>團隊成員</h2>
+  <div class="team">
+    <div class="member">
+      <img src="images/team1.jpg" alt="蔡怡茜" />
+      <p>蔡怡茜（常春藤）</p>
     </div>
-
-    <div class="reveal slide-left">
-      <h2>我們的願景</h2>
-      <p>我們夢想一個與自然和諧共處的世界。我們希望，做一件讓世界更美麗的事。</p>
-      <div class="stats-container">
-        <div class="stat-item">
-          <div class="stat-number" data-count="9">0</div>
-          <div class="stat-label">團隊成員</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" data-count="3">0</div>
-          <div class="stat-label">進行中專案</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" data-count="1000">0</div>
-          <div class="stat-label">受惠家庭</div>
-        </div>
-      </div>
+    <div class="member">
+      <img src="images/team2.jpg" alt="廖崇棻" />
+      <p>廖崇棻（花栗鼠）</p>
     </div>
-
-    <div class="reveal slide-right">
-      <h2>我們的團隊</h2>
-      <p>由來自不同背景的學生組成，我們透過學校所學的知識，共同為雨林保育努力。</p>
-      
-      <div class="team-grid">
-        <div class="team-member reveal fade-in">
-          <img src="images/team1.jpg" alt="蔡怡茜">
-          <h3>蔡怡茜</h3>
-          <p>常春藤</p>
-        </div>
-        <div class="team-member reveal fade-in delay-1">
-          <img src="images/team2.jpg" alt="廖崇棻">
-          <h3>廖崇棻</h3>
-          <p>花栗鼠</p>
-        </div>
-        <div class="team-member reveal fade-in delay-2">
-          <img src="images/team3.jpg" alt="吳亮岑">
-          <h3>吳亮岑</h3>
-          <p>月亮</p>
-        </div>
-        <div class="team-member reveal fade-in">
-          <img src="images/team4.jpg" alt="方品程">
-          <h3>方品程</h3>
-          <p>獵豹</p>
-        </div>
-        <div class="team-member reveal fade-in delay-1">
-          <img src="images/team5.jpg" alt="楊奕倫">
-          <h3>楊奕倫</h3>
-          <p>無尾熊</p>
-        </div>
-        <div class="team-member reveal fade-in delay-2">
-          <img src="images/team6.jpg" alt="林廷諺">
-          <h3>林廷諺</h3>
-          <p>小黃瓜</p>
-        </div>
-        <div class="team-member reveal fade-in">
-          <img src="images/team7.jpg" alt="李沛潔">
-          <h3>李沛潔</h3>
-          <p>佩佩豬</p>
-        </div>
-        <div class="team-member reveal fade-in delay-1">
-          <img src="images/team8.jpg" alt="蔡承煜">
-          <h3>蔡承煜</h3>
-          <p>山豬</p>
-        </div>
-        <div class="team-member reveal fade-in delay-2">
-          <img src="images/team9.jpg" alt="黃昱惟">
-          <h3>黃昱惟</h3>
-          <p>黑蒙</p>
-        </div>
-      </div>
+    <div class="member">
+      <img src="images/team3.jpg" alt="吳亮岑" />
+      <p>吳亮岑（月亮）</p>
     </div>
-
-    <div class="reveal fade-in">
-      <h2>加入我們的行列</h2>
-      <p>無論是捐款支持，或是分享我們的理念，您的參與都能為雨林保育帶來改變。</p>
-      <a href="#" class="button scale-in delay-1">捐款支持</a>
+    <div class="member">
+      <img src="images/team4.jpg" alt="方品程" />
+      <p>方品程（獵豹）</p>
     </div>
-
+    <div class="member">
+      <img src="images/team5.jpg" alt="楊奕倫" />
+      <p>楊奕倫（無尾熊）</p>
+    </div>
+    <div class="member">
+      <img src="images/team6.jpg" alt="林廷諺" />
+      <p>林廷諺（小黃瓜）</p>
+    </div>
+    <div class="member">
+      <img src="images/team7.jpg" alt="李沛潔" />
+      <p>李沛潔（佩佩豬）</p>
+    </div>
+    <div class="member">
+      <img src="images/team8.jpg" alt="蔡承煜" />
+      <p>蔡承煜（山豬）</p>
+    </div>
+    <div class="member">
+      <img src="images/team9.jpg" alt="黃昱惟" />
+      <p>黃昱惟（黑蒙）</p>
+    </div>
   </div>
 
-  <footer class="reveal fade-in">
-    <p> 2025 中一翔鷹 EagleTeam. All rights reserved.</p>
-    <p>Email: tweagleteam@gmail.com</p>
-  </footer>
+  <a href="index.html" class="button">返回首頁</a>
+</div>
 
-  <script src="js/main.js"></script>
+<footer>
+  <p>© 2025 中一翔鷹 EagleTeam. All rights reserved. | Email: tweagleteam@gmail.com</p>
+</footer>
+
 </body>
 </html>
