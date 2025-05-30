@@ -8,20 +8,44 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      color: #f0f0f0;
       text-align: center;
       margin: 0;
       padding: 0;
+      min-height: 100vh;
+      line-height: 1.6;
     }
     .container {
-      padding: 60px 20px;
+      padding: 70px 20px;
       max-width: 1200px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Add subtle pattern overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 20px 20px;
+      z-index: 0;
+      pointer-events: none;
     }
     h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
+      font-size: 3.2em;
+      margin-bottom: 25px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(45deg, #ffffff, #e0e0e0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
     h2 {
       color: #4a8f3c;
@@ -40,13 +64,18 @@
       margin: 40px 0;
     }
     .team-member {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
+      background: rgba(30, 30, 30, 0.7);
+      padding: 25px 20px;
+      border-radius: 12px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     .team-member:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.02);
+      background: rgba(40, 40, 40, 0.8);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
     .team-member img {
       width: 150px;
@@ -57,21 +86,29 @@
       border: 3px solid #4a8f3c;
     }
     .button {
-      background-color: #4f8141;
-      color: #DFF0D8;
-      padding: 12px 30px;
-      margin: 20px 10px;
+      background: linear-gradient(45deg, #4a8f3c, #5aae4a);
+      color: #ffffff;
+      padding: 14px 35px;
+      margin: 25px 10px;
       text-decoration: none;
-      font-weight: bold;
-      border-radius: 30px;
+      font-weight: 600;
+      border-radius: 50px;
       display: inline-block;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      box-shadow: 0 4px 15px rgba(74, 143, 60, 0.3);
+      position: relative;
+      overflow: hidden;
     }
     .button:hover {
-      background-color: transparent;
-      border-color: #4f8141;
-      color: #4f8141;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(74, 143, 60, 0.4);
+      background: linear-gradient(45deg, #5aae4a, #4a8f3c);
+    }
+    
+    .button:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 10px rgba(74, 143, 60, 0.3);
     }
     .stats-container {
       display: flex;
@@ -83,16 +120,21 @@
       margin: 15px;
     }
     .stat-number {
-      font-size: 2.5em;
+      font-size: 2.8em;
       font-weight: bold;
-      color: #4a8f3c;
+      background: linear-gradient(45deg, #4a8f3c, #5aae4a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 5px;
+      text-shadow: 0 2px 10px rgba(74, 143, 60, 0.3);
     }
     footer {
-      margin-top: 60px;
-      color: #999;
-      padding: 20px 0;
-      border-top: 1px solid #333;
+      margin-top: 80px;
+      color: #aaa;
+      padding: 30px 0;
+      background: rgba(15, 15, 15, 0.8);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.95em;
     }
     @media (max-width: 768px) {
       .team-grid {
