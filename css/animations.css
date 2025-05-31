@@ -54,6 +54,13 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.large-photo {
+  width: 80%;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
 .gallery img:hover {
     transform: translateY(-10px) scale(1.03);
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
