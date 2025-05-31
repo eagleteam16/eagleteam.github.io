@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize scroll reveal animations
     initScrollReveal();
+    animateStats();
     
     // Add smooth scrolling to all links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
