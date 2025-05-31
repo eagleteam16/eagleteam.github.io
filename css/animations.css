@@ -54,6 +54,11 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.hero-photo {
+  text-align: center;
+  margin: 50px auto;
+}
+
 .large-photo {
   width: 80%;
   max-width: 900px;
