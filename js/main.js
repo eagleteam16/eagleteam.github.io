@@ -53,5 +53,28 @@ function animateGallery() {
     });
 }
 
+function animateStats() {
+    const counters = document.querySelectorAll('.stat-number');
+
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-count');
+        let count = 0;
+
+        const updateCount = () => {
+            const increment = Math.ceil(target / 60);
+            count += increment;
+            if (count < target) {
+                counter.innerText = count;
+                requestAnimationFrame(updateCount);
+            } else {
+                counter.innerText = target;
+            }
+        };
+
+        updateCount();
+    });
+}
+
+
 // Call the gallery animation function after page load
 window.addEventListener('load', animateGallery);
