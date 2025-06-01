@@ -59,34 +59,80 @@
       margin: 0 auto 30px;
       line-height: 1.6;
     }
+    .team-section {
+      margin: 40px 0;
+    }
+    .team-section h3 {
+      color: #4a8f3c;
+      margin: 40px 0 20px;
+      text-align: left;
+      border-bottom: 2px solid #4a8f3c;
+      padding-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 30px;
-      margin: 40px 0;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
     }
     .team-member {
       background: rgba(30, 30, 30, 0.7);
-      padding: 25px 20px;
-      border-radius: 12px;
+      padding: 20px 15px;
+      border-radius: 10px;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       backdrop-filter: blur(5px);
       border: 1px solid rgba(255, 255, 255, 0.05);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
     }
     .team-member:hover {
-      transform: translateY(-5px) scale(1.02);
+      transform: translateY(-3px);
       background: rgba(40, 40, 40, 0.8);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
     .team-member img {
-      width: 150px;
-      height: 150px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 15px;
-      border: 3px solid #4a8f3c;
+      margin: 0 auto 10px;
+      display: block;
+      border: 2px solid #4a8f3c;
+      transition: all 0.3s ease;
     }
+    .team-section:not(.collapsed) .team-member img {
+      width: 120px;
+      height: 120px;
+      border-width: 3px;
+      margin-bottom: 15px;
+    }
+    .team-member:hover img {
+      transform: scale(1.05);
+    }
+    .team-member h3 {
+      margin: 5px 0 3px;
+      font-size: 1em;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    .team-section:not(.collapsed) .team-member h3 {
+      margin: 10px 0 5px;
+      font-size: 1.1em;
+    }
+    .team-member p {
+      margin: 0;
+      font-size: 0.9em;
+      color: #ccc;
+      transition: all 0.3s ease;
+    }
+    .team-section:not(.collapsed) .team-member p {
+      font-size: 1em;
+    }
+
     .button {
       background: linear-gradient(45deg, #4a8f3c, #5aae4a);
       color: #ffffff;
@@ -148,7 +194,47 @@
         grid-template-columns: 1fr;
       }
     }
+    .toggle-section {
+      background: rgba(30, 30, 30, 0.7);
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin: 10px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .toggle-section h3 {
+      margin: 10px 0;
+    }
+    .toggle-icon {
+      font-size: 0.8em;
+      transition: transform 0.3s ease;
+    }
+    .team-section.collapsed .team-grid {
+      display: none;
+    }
+    .team-section.collapsed .toggle-icon {
+      transform: rotate(-90deg);
+    }
   </style>
+  <script>
+    // 折疊/展開整個期別的成員
+    document.addEventListener('DOMContentLoaded', function() {
+      // 預設折疊所有期別
+      document.querySelectorAll('.team-section').forEach(section => {
+        section.classList.add('collapsed');
+      });
+      
+      const sections = document.querySelectorAll('.team-section h3');
+      sections.forEach(section => {
+        section.addEventListener('click', function() {
+          const parent = this.parentElement;
+          parent.classList.toggle('collapsed');
+        });
+      });
+    });
+  </script>
 </head>
 <body>
   <div class="container">
@@ -183,52 +269,80 @@
     <div class="reveal slide-right">
       <h2>我們的團隊</h2>
       <p>由來自不同背景的學生組成，我們透過學校所學的知識，共同為雨林保育努力。</p>
+
+      <div class="team-section">
+        <h3>2023團隊 <span class="toggle-icon">▼</span></h3>
+        <div class="team-grid">
+          <!-- 2023團隊-->
+          <div class="team-member">
+            <img src="images/947775d3-f287-4933-aee1-d93e7f9a9100.jpg" alt="方羽歆">
+            <h3>方羽歆</h3>
+            <p>小灰蝶</p>
+          </div>
+        </div>
+      </div>
       
-      <div class="team-grid">
-        <div class="team-member reveal fade-in">
-          <img src="images/IMG_3684.jpeg" alt="蔡怡茜">
-          <h3>蔡詒茜</h3>
-          <p>長春藤</p>
+      <div class="team-section">
+        <h3>2024團隊 <span class="toggle-icon">▼</span></h3>
+        <div class="team-grid">
+          <div class="team-member">
+            <img src="images/IMG_3684.jpeg" alt="蔡怡茜">
+            <h3>蔡詒茜</h3>
+            <p>長春藤</p>
+          </div>
+          <div class="team-member">
+            <img src="images/P1130961.jpeg" alt="廖崇棻">
+            <h3>廖崇棻</h3>
+            <p>花栗鼠</p>
+          </div>
+          <div class="team-member">
+            <img src="images/IMG_3683.jpeg" alt="吳亮岑">
+            <h3>吳亮岑</h3>
+            <p>月亮</p>
+          </div>
+          <div class="team-member">
+            <img src="images/IMG_2314.jpeg" alt="方品程">
+            <h3>方品程</h3>
+            <p>獵豹</p>
+          </div>
+          <div class="team-member">
+            <img src="images/IMG_3681.jpeg" alt="楊奕倫">
+            <h3>楊奕倫</h3>
+            <p>無尾熊</p>
+          </div>
+          <div class="team-member">
+            <img src="images/IMG_0175.jpeg" alt="林廷諺">
+            <h3>林廷諺</h3>
+            <p>小黃瓜</p>
+          </div>
+          <div class="team-member">
+            <img src="images/IMG_3692.png" alt="李沛潔">
+            <h3>李沛潔</h3>
+            <p>佩佩豬</p>
+          </div>
+          <div class="team-member">
+            <img src="images/IMG_3691.jpeg" alt="蔡承煜">
+            <h3>蔡承煜</h3>
+            <p>山豬</p>
+          </div>
+          <div class="team-member">
+            <img src="images/S__20578308_0.jpg" alt="黃昱惟">
+            <h3>黃昱惟</h3>
+            <p>黑蒙</p>
+          </div>
         </div>
-        <div class="team-member reveal fade-in delay-1">
-          <img src="images/P1130961.jpeg" alt="廖崇棻">
-          <h3>廖崇棻</h3>
-          <p>花栗鼠</p>
-        </div>
-        <div class="team-member reveal fade-in delay-2">
-          <img src="images/IMG_3683.jpeg" alt="吳亮岑">
-          <h3>吳亮岑</h3>
-          <p>月亮</p>
-        </div>
-        <div class="team-member reveal fade-in">
-          <img src="images/IMG_2314.jpeg" alt="方品程">
-          <h3>方品程</h3>
-          <p>獵豹</p>
-        </div>
-        <div class="team-member reveal fade-in delay-1">
-          <img src="images/IMG_3681.jpeg" alt="楊奕倫">
-          <h3>楊奕倫</h3>
-          <p>無尾熊</p>
-        </div>
-        <div class="team-member reveal fade-in delay-2">
-          <img src="images/IMG_0175.jpeg" alt="林廷諺">
-          <h3>林廷諺</h3>
-          <p>小黃瓜</p>
-        </div>
-        <div class="team-member reveal fade-in">
-          <img src="images/IMG_3692.png" alt="李沛潔">
-          <h3>李沛潔</h3>
-          <p>佩佩豬</p>
-        </div>
-        <div class="team-member reveal fade-in delay-1">
-          <img src="images/IMG_3691.jpeg" alt="蔡承煜">
-          <h3>蔡承煜</h3>
-          <p>山豬</p>
-        </div>
-        <div class="team-member reveal fade-in delay-2">
-          <img src="images/S__20578308_0.jpg" alt="黃昱惟">
-          <h3>黃昱惟</h3>
-          <p>黑蒙</p>
+      </div>
+      
+      <div class="team-section">
+        <h3>2025團隊 <span class="toggle-icon">▼</span></h3>
+        <div class="team-grid">
+          <!-- 2025團隊將於未來加入 -->
+           <div class="team-member">
+            <img src="images/hippopotamus.jpg" alt="江季芸">
+            <h3>江季芸</h3>
+            <p>河馬</p>
+          </div>
+           
         </div>
       </div>
     </div>
