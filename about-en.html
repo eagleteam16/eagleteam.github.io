@@ -8,17 +8,6 @@
   <link rel="stylesheet" href="css/animations.css">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
   <style>
-    /* 保留原有樣式 */
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-      color: #f0f0f0;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      line-height: 1.6;
-    }
     /* 語言切換器樣式 */
     .language-switcher {
       position: fixed;
@@ -43,7 +32,56 @@
       opacity: 1;
       color: #4a8f3c;
     }
-    /* 其他樣式保持不變 */
+
+    /* 基本樣式 */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      color: #f0f0f0;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* Add subtle pattern overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 20px 20px;
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    h1 {
+      font-size: 3.2em;
+      margin-bottom: 25px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(45deg, #ffffff, #e0e0e0);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+      color: #4a8f3c;
+      margin-bottom: 20px;
+    }
+    
+    p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+    
     .container {
       padding: 70px 20px;
       max-width: 1200px;
@@ -51,50 +89,264 @@
       position: relative;
       z-index: 1;
     }
-    /* 其他樣式... */
+    
+    .team-section {
+      margin: 40px 0;
+    }
+    
+    .team-section h3 {
+      color: #4a8f3c;
+      margin: 40px 0 20px;
+      text-align: left;
+      border-bottom: 2px solid #4a8f3c;
+      padding-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+      justify-items: center;
+    }
+    
+    .team-member {
+      background: rgba(30, 30, 30, 0.7);
+      padding: 20px 15px;
+      border-radius: 10px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      width: 140px;
+      box-sizing: border-box;
+    }
+    
+    .team-member:hover {
+      transform: translateY(-3px);
+      background: rgba(40, 40, 40, 0.8);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .team-member img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 10px;
+      display: block;
+      border: 2px solid #4a8f3c;
+      transition: all 0.3s ease;
+    }
+    
+    .team-section:not(.collapsed) .team-member {
+      width: 180px;
+      text-align: left;
+    }
+    
+    .team-section:not(.collapsed) .team-member img {
+      width: 120px;
+      height: 120px;
+      border-width: 3px;
+      margin-bottom: 15px;
+    }
+    
+    .team-member:hover img {
+      transform: scale(1.05);
+    }
+    
+    .team-member h3 {
+      margin: 5px 0 3px;
+      font-size: 1em;
+      color: #fff;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .team-section:not(.collapsed) .team-member h3 {
+      margin: 10px 0 5px;
+      font-size: 1.1em;
+    }
+    
+    .team-member p {
+      margin: 0;
+      font-size: 0.9em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #ccc;
+      transition: all 0.3s ease;
+    }
+    
+    .team-section:not(.collapsed) .team-member p {
+      font-size: 1em;
+    }
+    
+    .button {
+      background: linear-gradient(45deg, #4a8f3c, #5aae4a);
+      color: #ffffff;
+      padding: 14px 35px;
+      margin: 25px 10px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 50px;
+      display: inline-block;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      box-shadow: 0 4px 15px rgba(74, 143, 60, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(74, 143, 60, 0.4);
+      background: linear-gradient(45deg, #5aae4a, #4a8f3c);
+    }
+    
+    .button:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 10px rgba(74, 143, 60, 0.3);
+    }
+    
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+    
+    .stat-item {
+      margin: 15px;
+    }
+    
+    .stat-number {
+      font-size: 2.8em;
+      font-weight: bold;
+      background: linear-gradient(45deg, #4a8f3c, #5aae4a);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 5px;
+      text-shadow: 0 2px 10px rgba(74, 143, 60, 0.3);
+    }
+    
+    footer {
+      margin-top: 80px;
+      color: #aaa;
+      padding: 30px 0;
+      background: rgba(15, 15, 15, 0.8);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.95em;
+    }
+    
+    @media (max-width: 768px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .toggle-section {
+      background: rgba(30, 30, 30, 0.7);
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin: 10px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .toggle-section h3 {
+      margin: 10px 0;
+    }
+    
+    .toggle-icon {
+      font-size: 0.8em;
+      transition: transform 0.3s ease;
+    }
+    
+    .team-section.collapsed .team-grid {
+      display: none;
+    }
+    
+    .team-section.collapsed .toggle-icon {
+      transform: rotate(-90deg);
+    }
   </style>
+  
+  <script>
+    // 折疊/展開整個期別的成員
+    document.addEventListener('DOMContentLoaded', function() {
+      // 預設折疊所有期別
+      document.querySelectorAll('.team-section').forEach(section => {
+        section.classList.add('collapsed');
+      });
+      
+      const sections = document.querySelectorAll('.team-section h3');
+      sections.forEach(section => {
+        section.addEventListener('click', function() {
+          const parent = this.parentElement;
+          parent.classList.toggle('collapsed');
+        });
+      });
+    });
+  </script>
 </head>
 <body>
   <!-- 語言切換器 -->
   <div class="language-switcher">
-    <a href="about.html" title="中文">中文</a> | 
-    <a href="about-en.html" class="active" title="English">EN</a>
+    <a href="about.html" class="active" title="中文">中文</a> | 
+    <a href="about-en.html" title="English">EN</a>
   </div>
 
   <div class="container">
     <h1 class="reveal fade-in">About Illuminating the Rainforest</h1>
-    <p class="reveal fade-in delay-1"><strong>Do something to make the world more beautiful</strong></p>
+    <p class="reveal fade-in delay-1"><strong>Making the World a More Beautiful Place</strong></p>
 
     <div class="reveal fade-in">
-      <h2>Challenges Facing the Rainforest</h2>
+      <h2>The Plight of the Rainforest</h2>
       <h3>The Rainforest - The Lungs of Our Planet</h3>
-      <p>The Borneo Rainforest is the third largest rainforest on Earth and the closest primary rainforest to Taiwan. Any changes in this ecosystem have a significant impact on Taiwan.</p>
-      <p>However, in recent years, the life of the rainforest has been gradually disappearing due to logging. During our visit, we witnessed firsthand how the once-lush forest has been reduced to bare land after the trees were cut down.....</p>
-      <img src="images/asset_784029_image_big.jpg" alt="Rainforest Photo" class="large-photo">
-      <p>The Penan people, indigenous to this land, are the nomadic tribe of the Borneo rainforest. While a few still maintain their nomadic lifestyle, most have settled down. To save the Borneo rainforest, they fearlessly confront logging companies and the government with their limited resources, all to protect their homeland.</p>
-      <p>The photo below shows the Penan people's roadblock protest, physically preventing loggers from entering the forest. Penan people from different areas gathered to protect their land with their bodies. Kelesau Naan, a Penan leader from Long Kerong, faced tremendous pressure for leading his people in protest. During a routine hunting trip, he never returned. His worried tribesmen searched for him, only to find his body by the river, covered in wounds and without signs of life......</p>
-      <img src="images/asset_771264_image_big.jpg" alt="Penan Roadblock Protest" class="large-photo">
+      <p>The Borneo Rainforest, the third largest in the world and the closest primary rainforest to Taiwan, plays a crucial role in our global ecosystem. Any changes to this vital ecosystem could have significant impacts on Taiwan's environment.</p>
+      <p>In recent years, we've witnessed the devastating effects of rampant deforestation. During our expeditions, we've seen firsthand how vast areas of once-lush forest have been reduced to barren wastelands...</p>
+      <img src="images/asset_784029_image_big.jpg" alt="Rainforest" class="large-photo">
+      <p>The Penan people, indigenous to these lands, are traditionally nomadic forest dwellers. While some still maintain their nomadic lifestyle, most have now settled in permanent communities. In a courageous stand to protect their ancestral rainforest home, they've been resisting powerful logging companies and government interests with nothing but their determination.</p>
+      <p>The photo below shows the Penan's blockade efforts to prevent loggers from entering their forests. Penan from various communities gather, using their own bodies as barriers to protect their land. Kelesau Naan, a Penan leader from Long Kerong, faced immense pressure for organizing these protests. During what should have been a routine hunting trip, he never returned. In a heartbreaking discovery, his body was later found by the river, bearing signs of violence...</p>
+      <img src="images/asset_771264_image_big.jpg" alt="Penan Road Blockade" class="large-photo">
     </div>
 
     <div class="reveal fade-in">
       <h2>Why Electricity?</h2>
-      <p>One of the Penan's conservation efforts is to share their story with the world. They believe that if more people refuse to purchase illegally logged timber, the destruction of the rainforest can be slowed. With this in mind, the Penan people strive to spread awareness globally. As one of the largest importers of Malaysian timber, Taiwan is a key location for their advocacy work.</p>
-      <p>After learning about the Penan's situation, our team visited the rainforest to see how we could help. We discovered that beyond purchasing their handmade crafts, the Penan face economic challenges due to their prolonged resistance against logging. Even villages just a 15-20 minute walk from Mulu Airport still lack stable electricity.</p>
+      <p>One of the Penan's key conservation strategies is raising global awareness about their struggle. They believe that reducing demand for illegally logged timber can help slow deforestation. With this mission, they've been traveling worldwide to share their story, with Taiwan being a primary focus due to its significant timber imports from Malaysia.</p>
+      <p>After learning about the Penan's situation, our team visited the rainforest to see how we could help. Beyond supporting their handicraft trade, we discovered that their prolonged resistance has led to economic isolation. Even villages just a 15-20 minute walk from Mulu Airport still lack reliable electricity.</p>
     </div>
 
     <div class="reveal fade-in">
-      <h2>This Project Has Been Ongoing for Ten Years!!</h2>
-      <p>We are a group of parents and children who organize annual trips to the Borneo rainforest. We install solar power systems in remote Penan villages without electricity, ensuring they can maintain basic daily operations while protecting their forest home.</p>
+      <h2>10 Years and Counting!</h2>
+      <p>We are a group of parents and children who organize annual expeditions to the Borneo rainforest. Our mission is to install solar power systems in remote Penan villages, ensuring they have access to electricity while continuing their crucial forest conservation work.</p>
       <img src="images/asset_784044_image_big.webp" alt="Penan Village" class="large-photo">
-      <p>Each Penan family receives an LED light tube and a power bank. During the day, villagers charge the power banks, which can then provide basic lighting for their homes at night. The photo shows us installing solar light tubes for an elderly woman. Her smile made us realize that what we take for granted is a precious resource for them. Now, Penan children no longer have to do their homework under the dim light of headlamps.</p>
-      <img src="images/asset_784056_image_big.jpg" alt="Penan Village" class="large-photo">
-      <p>Since 2016, this project has been running for ten years, bringing solar power systems to 11 Penan villages. However, more than 10 villages still lack access to solar electricity.</p>
-      <img src="images/asset_784035_image_big.webp" alt="Penan Village" class="large-photo">
+      <p>Each Penan family receives an LED light and a portable power bank. Villagers charge these power banks during the day, providing essential lighting at night. The photo shows us installing solar lights for an elderly woman. Her joyful expression made us realize how much we take electricity for granted. Now, Penan children can do their homework without relying on headlamps.</p>
+      <img src="images/asset_784056_image_big.jpg" alt="Penan Village Life" class="large-photo">
+      <p>Since 2016, our project has brought solar power to 11 Penan villages. However, more than 10 communities still lack access to this basic necessity.</p>
+      <img src="images/asset_784035_image_big.webp" alt="Penan Community" class="large-photo">
     </div>
+
 
     <div class="reveal fade-in">
       <h2>Our Vision</h2>
-      <p>We dream of a world that lives in harmony with nature. We hope to do something to make the world more beautiful.</p>
+      <p>We dream of a world living in harmony with nature. Together, we can make the world a more beautiful place.</p>
       <div class="stats-container">
         <div class="stat-item">
           <div class="stat-number" data-count="9">0</div>
@@ -113,34 +365,98 @@
 
     <div class="reveal slide-right">
       <h2>Our Team</h2>
-      <p>Composed of students from diverse backgrounds, we use our knowledge to work together for rainforest conservation.</p>
+      <p>Comprising students from diverse backgrounds, we apply our knowledge and skills to support rainforest conservation efforts.</p>
 
-      <!-- 團隊成員部分保持不變 -->
       <div class="team-section">
         <h3>2023 Team <span class="toggle-icon">▼</span></h3>
         <div class="team-grid">
+          <!-- 2023團隊-->
           <div class="team-member">
-            <img src="images/947775d3-f287-4933-aee1-d93e7f9a9100.jpg" alt="Fang Yu-Xin">
-            <h3>Fang Yu-Xin</h3>
+            <img src="images/947775d3-f287-4933-aee1-d93e7f9a9100.jpg" alt="方羽歆">
+            <h3>Fang Yu-Hsin</h3>
             <p>Grayling</p>
           </div>
-          <!-- 其他團隊成員保持不變 -->
+        </div>
+      </div>
+      
+      <div class="team-section">
+        <h3>2024 Team <span class="toggle-icon">▼</span></h3>
+        <div class="team-grid">
+          <div class="team-member">
+            <img src="images/IMG_3684.jpeg" alt="蔡怡茜">
+            <h3>Tsai Yi-Chien</h3>
+            <p>Ivy</p>
+          </div>
+          <div class="team-member">
+            <img src="images/P1130961.jpeg" alt="廖崇棻">
+            <h3>Liao Chung-Fen</h3>
+            <p>Chipmunk</p>
+          </div>
+          <div class="team-member">
+            <img src="images/IMG_3683.jpeg" alt="吳亮岑">
+            <h3>Wu Liang-Tsen</h3>
+            <p>Moon</p>
+          </div>
+          <div class="team-member">
+            <img src="images/IMG_2314.jpeg" alt="方品程">
+            <h3>Fang Pin-Cheng</h3>
+            <p>Cheetah</p>
+          </div>
+          <div class="team-member">
+            <img src="images/IMG_3681.jpeg" alt="楊奕倫">
+            <h3>Yang Yi-Lun</h3>
+            <p>Koala</p>
+          </div>
+          <div class="team-member">
+            <img src="images/IMG_0175.jpeg" alt="林廷諺">
+            <h3>Lin Ting-Hsien</h3>
+            <p>Cucumber</p>
+          </div>
+          <div class="team-member">
+            <img src="images/IMG_3692.png" alt="李沛潔">
+            <h3>Li Pei-Chieh</h3>
+            <p>Peppa Pig</p>
+          </div>
+          <div class="team-member">
+            <img src="images/IMG_3691.jpeg" alt="蔡承煜">
+            <h3>Tsai Cheng-Yu</h3>
+            <p>Wild Boar</p>
+          </div>
+          <div class="team-member">
+            <img src="images/S__20578308_0.jpg" alt="黃昱惟">
+            <h3>Huang Yu-Wei</h3>
+            <p>Bonobo</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="team-section">
+        <h3>2025 Team <span class="toggle-icon">▼</span></h3>
+        <div class="team-grid">
+          <!-- 2025團隊將於未來加入 -->
+           <div class="team-member">
+            <img src="images/hippopotamus.jpg" alt="江季芸">
+            <h3>Chiang Chi-Yun</h3>
+            <p>Hippo</p>
+          </div>
+           
         </div>
       </div>
     </div>
 
     <div class="reveal fade-in">
-      <h2>Join Us</h2>
-      <p>Whether through donations or spreading our message, your participation can make a difference in rainforest conservation.</p>
+      <h2>Join Our Cause</h2>
+      <p>Your support, whether through donations or spreading awareness, can make a real difference in rainforest conservation.</p>
       <a href="#" class="button scale-in delay-1">Donate Now</a>
     </div>
     <div class="reveal fade-in">
       <a href="index.html" class="button scale-in delay-1">← Back to Home</a>
     </div>
+
   </div>
 
   <footer class="reveal fade-in">
-    <p>© 2025 EagleTeam. All rights reserved.</p>
+    <p>© 2025 Eagle Team. All rights reserved.</p>
     <p>Email: tweagleteam@gmail.com</p>
   </footer>
 
