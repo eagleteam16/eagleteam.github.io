@@ -8,18 +8,9 @@
     <meta name="author" content="EagleTeam">
     <title>中一翔鷹 照亮雨林</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E42B2ZJH5W"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-E42B2ZJH5W');
-    </script>
-    
-    <!-- Animation CSS -->
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -98,6 +89,28 @@
     <link rel="preload" href="js/main.js" as="script">
 </head>
 <body>
+    <!-- 導航欄 -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Eagle Team</a>
+            <div class="nav-links">
+                <a href="index.html" class="active">首頁</a>
+                <a href="about.html">關於我們</a>
+                <a href="news.html">最新消息</a>
+                <a href="#donate" class="donate-btn">捐款支持</a>
+                <div class="language-switcher">
+                    <a href="index.html" class="active">中文</a>
+                    <a href="index-en.html">EN</a>
+                </div>
+            </div>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
     <div class="container">
         <h1 class="reveal fade-in">中一翔鷹 照亮雨林</h1>
         <p class="reveal fade-in delay-1"><strong>在喧囂與雨幕中，我們以信念穿林破霧，築起希望的翅膀</strong></p>
@@ -111,7 +124,7 @@
         <div class="reveal slide-left">
             <h2>關於我們</h2>
             <p>我們是中一翔鷹團隊，致力於雨林保育與環境教育，為馬來西亞的本南居民守護一片土壤，照亮一片光明。從一場課程、一段紀錄，到一份行動。我們相信，每一次展翅，都是對自然的回應；每一份努力，都是給未來的光。</p>
-            <a href="about.html" class="button scale-in delay-1">關於我們</a>
+            <a href="about.html" class="button scale-in delay-1">了解使命</a>
         </div>
 
         <div class="gallery reveal">
@@ -122,7 +135,7 @@
         <div class="reveal slide-right">
             <h2>手工藝品</h2>
             <p>每一件由當地居民親手製作的作品，都是對他們文化、傳統和生活方式的珍視與延續。您的支持不僅能幫助他們更好地生活，也讓更多人了解這些美麗的故事與工藝。</p>
-            <a href="https://www.zeczec.com/projects/illuminating-rainforestt" class="button scale-in delay-1">捐款支持</a>
+            <a href="#" class="button scale-in delay-1">捐款支持</a>
         </div>
 
         <div class="hero-photo">
