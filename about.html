@@ -6,33 +6,9 @@
   <title>關於我們 - 中一翔鷹</title>
   <link rel="stylesheet" href="css/about.css">
   <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-  <style>
-    /* 語言切換器樣式 */
-    .language-switcher {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-      background: rgba(30, 30, 30, 0.8);
-      padding: 5px 15px;
-      border-radius: 20px;
-      backdrop-filter: blur(5px);
-    }
-    .language-switcher a {
-      color: #f0f0f0;
-      text-decoration: none;
-      margin: 0 5px;
-      font-size: 0.9em;
-      opacity: 0.7;
-      transition: opacity 0.3s;
-    }
-    .language-switcher a:hover, 
-    .language-switcher a.active {
-      opacity: 1;
-      color: #4a8f3c;
-    }
-  </style>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -280,10 +256,28 @@
 </head>
 <body>
   <!-- 語言切換器 -->
-  <div class="language-switcher">
-    <a href="about.html" class="active" title="中文">中文</a> | 
-    <a href="about-en.html" title="English">EN</a>
-  </div>
+   <!-- 導航欄 -->
+   <nav class="main-nav">
+    <div class="nav-container">
+        <a href="index.html" class="logo">照亮雨林</a>
+        <div class="nav-links">
+            <a href="index.html">首頁</a>
+            <a href="about.html" class="active">關於我們</a>
+            <a href="news.html">最新消息</a>
+            <a href="#donate" class="donate-btn">捐款支持</a>
+            <div class="language-switcher">
+                <a href="about.html"class="active">中文</a>
+                <a href="about-en.html">EN</a>
+            </div>
+        </div>
+        <button class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+
 
   <div class="container reveal fade-in">
     <h1 class="reveal fade-in">關於 照亮雨林</h1>
