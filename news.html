@@ -6,16 +6,60 @@
     <title>最新消息 - Eagle Team</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+        }
+        .news-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .news-card h2 {
+            color: white;
+        }
+        .news-card p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .read-more {
+            color: #4a8f3c !important;
+        }
+        .read-more:hover {
+            color: #3a752e !important;
+        }
+        .read-more i {
+            color: inherit;
+        }
+        .news-date {
+            background-color: #4a8f3c;
+        }
+        footer {
+            background-color: #0a0a0a;
+        }
+        .footer-content {
+            color: white;
+        }
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .social-links a {
+            color: white;
+        }
+        .social-links a:hover {
+            color: #4a8f3c;
+        }
+    </style>
 </head>
 <body>
     <!-- 導航欄 -->
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="index.html" class="logo">Eagle Team</a>
+            <a href="index.html" class="logo">照亮雨林</a>
             <div class="nav-links">
                 <a href="index.html">首頁</a>
-                <a href="about.html" class="active">關於我們</a>
-                <a href="news.html">最新消息</a>
+                <a href="about.html">關於我們</a>
+                <a href="news.html" class="active">最新消息</a>
                 <a href="#donate" class="donate-btn">捐款支持</a>
                 <div class="language-switcher">
                     <a href="news.html" class="active">中文</a>
@@ -38,24 +82,31 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="reveal fade-in">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>聯絡我們</h3>
-                <p>Email: contact@eagleteam.org</p>
-                <p>電話: (02) 1234-5678</p>
+                <p>Email: tweagleteam@gmail.com</p>
             </div>
             <div class="footer-section">
                 <h3>關注我們</h3>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com/eagleteam" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/eagleteam" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/eagleteam" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
+            </div>
+            <div class="footer-section">
+                <h3>快速連結</h3>
+                <ul>
+                    <li><a href="about.html">關於我們</a></li>
+                    <li><a href="donate.html">捐款支持</a></li>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Eagle Team. 版權所有。</p>
+            <p>&copy; 2025 中一翔鷹 EagleTeam. All rights reserved.</p>
+            <p>Email: tweagleteam@gmail.com</p>
         </div>
     </footer>
 
