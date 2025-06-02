@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize scroll reveal animations
     initScrollReveal();
     animateStats();
+    initNavbar();
+    initMobileMenu();
     
     // Add smooth scrolling to all links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -14,10 +16,78 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth',
                     block: 'start'
                 });
+                // Close mobile menu if open
+                closeMobileMenu();
             }
         });
     });
 });
+
+// Initialize navbar scroll behavior
+function initNavbar() {
+    const navbar = document.querySelector('.main-nav');
+    let lastScroll = 0;
+    const scrollThreshold = 5; // 滾動多少像素後觸發隱藏/顯示
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        // 向下滾動超過閾值時隱藏導航欄
+        if (currentScroll > lastScroll + scrollThreshold && currentScroll > 100) {
+            navbar.classList.add('hidden');
+        } 
+        // 向上滾動時顯示導航欄
+        else if (currentScroll < lastScroll - scrollThreshold) {
+            navbar.classList.remove('hidden');
+        }
+        
+        // 在頁面頂部時總是顯示導航欄
+        if (currentScroll < 100) {
+            navbar.classList.remove('hidden');
+        }
+        
+        lastScroll = currentScroll;
+    });
+}
+
+// Initialize mobile menu functionality
+function initMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (hamburger) {
+        hamburger.addEventListener('click', toggleMobileMenu);
+    }
+    
+    // Close menu when clicking on a nav link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+}
+
+function toggleMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    
+    // Toggle body scroll when menu is open
+    if (navLinks.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+}
+
+function closeMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
+    document.body.style.overflow = '';
+}
 
 // Initialize scroll reveal effect
 function initScrollReveal() {
