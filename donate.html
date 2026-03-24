@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="EagleTeam - 馬來西亞雨林中的行動者，推動文化與環境教育的團隊。">
+    <meta name="keywords" content="EagleTeam, 馬來西亞, 雨林, 環境保育, 文化, 手工藝, 教育, 中一翔鷹, 中一, 翔鷹, 照亮">
+    <meta name="author" content="EagleTeam">
+    <title>中一翔鷹 照亮雨林</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 60px 20px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .gallery img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .button {
+            background-color: #2E4A26;
+            color: #DFF0D8;
+            padding: 12px 24px;
+            margin: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #3d6b35;
+            z-index: -1;
+            transition: transform 0.3s ease;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            border-radius: 30px;
+        }
+        .button:hover::after {
+            transform: scaleY(1);
+        }
+        footer {
+            margin-top: 60px;
+            color: #999;
+        }
+    </style>
+    <!-- Preload important resources -->
+    <link rel="preload" href="js/main.js" as="script">
+</head>
+<body>
+    <!-- 導航欄 -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">照亮雨林</a>
+            <div class="nav-links">
+                <a href="index.html">首頁</a>
+                <a href="about.html">關於我們</a>
+                <a href="news.html">最新消息</a>
+                <a href="donate.html" class="donate-btn active">捐款支持</a>
+                <div class="language-switcher">
+                    <a href="donate.html" class="active">中文</a>
+                    <a href="donate-en.html">EN</a>
+                </div>
+            </div>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <p>  </p>
+        <h1 class="reveal fade-in">捐款專案紀錄</h1>
+        <p class="reveal fade-in delay-1"><strong>我們陳諾將一切資金透明化，讓每一個人的捐款都能真正幫助到本南人</strong></p>
+
+        <div class="reveal slide-left">
+            <h2>2024年</h2>
+            <p>照亮雨林 紀錄片眾籌 嘖嘖募資平台</p>
+            <a href="https://www.zeczec.com/projects/Shining-up-the-rainforest?srsltid=AfmBOorsRP6Q_2xvp6GXcfYIGC19HkxwiBV5JWtOZ9np26TT1GUr7VkS" class="button scale-in delay-1">專案連結(已結案)</a>
+        </div>
+
+        <div class="reveal slide-right">
+            <h2>2025年</h2>
+            <p>照亮雨林 聽見本南人的聲音 嘖嘖募資平台</p>
+            <a href="https://www.zeczec.com/projects/illuminating-rainforest?r=d216103346216" class="button scale-in delay-1">專案連結(已結案)</a>
+        </div>
+
+        <div class="reveal fade-in">
+            <h2>與我們聯繫</h2>
+            <p>無論是提問、建議還是合作，隨時聯繫我們，我們願意聽取並為您提供支持。</p>
+            <a href="https://forms.gle/aRmLBEMGwUXH9hKZ7" class="button scale-in delay-1">與我們分享您的想法</a>
+        </div>
+
+        <footer class="reveal fade-in">
+            <p>© 2025 EagleTeam. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
