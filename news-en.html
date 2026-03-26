@@ -22,6 +22,14 @@
         .news-card p {
             color: rgba(255, 255, 255, 0.8);
         }
+        .news-cover-image {
+            width: 100%;
+            max-height: 320px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 8px 0 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
         .read-more {
             color: #4a8f3c !important;
         }
@@ -30,6 +38,98 @@
         }
         .read-more i {
             color: inherit;
+        }
+        .read-more-btn {
+            background: transparent;
+            border: 0;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+        }
+        .news-detail {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .news-detail-title {
+            color: #4a8f3c;
+            margin-bottom: 10px;
+        }
+        body.news-modal-open {
+            overflow: hidden;
+        }
+        .news-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 220ms ease;
+            pointer-events: none;
+        }
+        .news-modal[hidden] {
+            display: none !important;
+        }
+        .news-modal.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .news-modal-panel {
+            width: min(1100px, 80vw);
+            height: min(82vh, 820px);
+            background: #151515;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 26px 24px 22px;
+            position: relative;
+            overflow-y: auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+            transform: scale(0.92);
+            transition: transform 220ms ease;
+        }
+        .news-modal-panel.is-visible {
+            transform: scale(1);
+        }
+        .news-modal-close {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            width: 32px;
+            height: 32px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+        }
+        .news-modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .news-modal-title {
+            margin-top: 0;
+            margin-bottom: 16px;
+            color: #4a8f3c;
+            padding-right: 40px;
+        }
+        .news-modal-body p {
+            text-align: left;
+            max-width: 100%;
+            margin: 0 0 14px;
+            line-height: 1.8;
+        }
+        .news-modal-image {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
         .news-date {
             background-color: #4a8f3c;
@@ -51,7 +151,7 @@
         }
     </style>
 </head>
-<body>
+<body data-news-lang="en">
     <!-- Navigation Bar -->
     <nav class="main-nav">
         <div class="nav-container">
@@ -77,15 +177,7 @@
     <main class="container">
         <h1>Latest News</h1>
         
-        <section class="news-section">
-            <div class="news-card">
-                <div class="news-date">June 7, 2025</div>
-                <h2>2025 Rainforest Expedition Officially Launched</h2>
-                <p>We are thrilled to announce the official launch of our 2025 Rainforest Expedition! This year, 30+ volunteers will travel to the Borneo rainforest in Malaysia to install solar power systems for the local Penan communities.</p>
-                <p>The expedition will not only include solar panel installations but also feature rainforest conservation workshops and environmental education programs for local communities. This marks our largest expedition to date.</p>
-                <a href="news-en/20250607-en.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </section>
+        <section class="news-section" id="news-list"></section>
     </main>
 
     <footer>
@@ -108,6 +200,7 @@
         </div>
     </footer>
 
+    <script src="js/news.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
